@@ -1,32 +1,55 @@
-
-TEST(SoundexTest, HandlesEmptyString) {
-    EXPECT_EQ(generateSoundex(""), "");
+#include <gtest/gtest.h>
+#include "Soundex.h"
+#include <stdio.h>
+#include <string.h>
+#include <assert.h>
+ 
+// Testcase 1: Common Name Soundex Conversion
+TEST(SoundexTestsuite, HandleCommonName) {
+    char soundex[5];
+    generateSoundex("Robert", soundex);
+    ASSERT_STREQ(soundex, "R163");
 }
  
-TEST(SoundexTest, HandlesSingleCharacter) {
-    EXPECT_EQ(generateSoundex("A"), "A000");
-    EXPECT_EQ(generateSoundex("R"), "R000");
+// Testcase 2: Name with Different Consonants Soundex Conversion
+TEST(SoundexTestsuite, HandleNameWithDifferentConsonants) {
+    char soundex[5];
+    generateSoundex("Ashcraft", soundex);
+    ASSERT_STREQ(soundex, "A261");
 }
-TEST(SoundexTest, HandlesVowels) {
-    EXPECT_EQ(generateSoundex("AEIOU"), "A000");
+ 
+// Testcase 3: Single Character Name Soundex Conversion
+TEST(SoundexTestsuite, HandleSingleCharacterName) {
+    char soundex[5];
+    generateSoundex("A", soundex);
+    ASSERT_STREQ(soundex, "A000");
 }
-TEST(SoundexTest, HandlesMixedString) {
-    EXPECT_EQ(generateSoundex("ALEXANDER"), "A425");
+ 
+// Testcase 4: Name Starting with a Vowel Soundex Conversion
+TEST(SoundexTestsuite, HandleNameStartingWithVowel) {
+    char soundex[5];
+    generateSoundex("Euler", soundex);
+    ASSERT_STREQ(soundex, "E460");
 }
-TEST(SoundexTest, HandlesIgnoredConsonents) {
-    EXPECT_EQ(generateSoundex("HWY"), "H000");
+ 
+// Testcase 5: Short Name with No Changes Soundex Conversion
+TEST(SoundexTestsuite, HandleShortNameWithNoChanges) {
+    char soundex[5];
+    generateSoundex("Lee", soundex);
+    ASSERT_STREQ(soundex, "L000");
 }
-TEST(SoundexTest, HandlesRepeatedCharacter) {
-    EXPECT_EQ(generateSoundex("BUTTERFLY"), "B361");
-    EXPECT_EQ(generateSoundex("Tomorrow"), "T560");
+ 
+// Testcase 6: Name with Special Character '@' in Soundex Conversion
+TEST(SoundexTestsuite, HandleNameWithSpecialCharacter) {
+    char soundex[5];
+    generateSoundex("B@rton", soundex);
+    ASSERT_STREQ(soundex, "B635");
 }
-TEST(SoundexTest, HandlesSameCaseCharacters) {
-    EXPECT_EQ(generateSoundex("MANGO"), "M200");
-    EXPECT_EQ(generateSoundex("JACK"), "J000");
+ 
+// Testcase 7: Name with Repeating Letters Soundex Conversion
+TEST(SoundexTestsuite, HandleNameWithRepeatingLetters) {
+    char soundex[5];
+    generateSoundex("Addams", soundex);
+    ASSERT_STREQ(soundex, "A352");
 }
-TEST(SoundexTest, HandlesSpecialCharacters) {
-    EXPECT_EQ(generateSoundex("RITA@"), "R300");
-}
-TEST(SoundexTest, HandlesNumerics) {
-EXPECT_EQ(generateSoundex("SITA12"), "S300");
-}
+has context menu
