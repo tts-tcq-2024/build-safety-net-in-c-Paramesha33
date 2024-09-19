@@ -6,7 +6,7 @@ Test Scenario: Verifies the Soundex conversion of a common name with standard co
 Purpose: Ensure that a common name is correctly converted into its Soundex representation, including the appropriate translation of consonants into digits.
   Input:           Expected Output:
 "Robert"              "R163"
- 
+
 // Testcase 2: Name with Different Consonants Soundex Conversion
 Testcase name : HandleNameWithDifferentConsonants
 Test Scenario: Verifies the Soundex conversion of a name with different consonants across its letters.
