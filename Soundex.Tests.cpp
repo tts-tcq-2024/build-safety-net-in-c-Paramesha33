@@ -52,4 +52,4 @@ TEST(SoundexTestsuite, HandleNameWithRepeatingLetters) {
     generateSoundex("Addams", soundex);
     ASSERT_STREQ(soundex, "A352");
 }
-has context menu
+
