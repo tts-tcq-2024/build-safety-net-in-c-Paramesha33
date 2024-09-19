@@ -7,7 +7,7 @@ const char soundexMapping[26] = {
     '2', '4', '5', '5', '0', '1', '2', '6', '2', '3', // K-T
     '0', '1', '0', '2', '0', '2'  // U-Z
 };
- 
+
 // Function to get the Soundex code for a character
 char getSoundexCode(char c) {
     c = toupper(c);
